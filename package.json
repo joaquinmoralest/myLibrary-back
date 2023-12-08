@@ -1,0 +1,17 @@
+{
+  "name": "mylibrary-api",
+  "version": "1.0.0",
+  "description": "Api del proyecto myLibrary",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "api",
+    "libreria",
+    "libros",
+    "librero"
+  ],
+  "author": "Joaquín Morales Trincado - JoacoDev",
+  "license": "ISC"
+}
