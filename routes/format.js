@@ -1,3 +1,4 @@
+import { Router } from "express";
 import mysql from "mysql2/promise";
 import "dotenv/config.js";
 
@@ -12,18 +13,10 @@ const DEFAULT_CONFIG = {
 const connectionConfig = process.env.DATABASE_URL ?? DEFAULT_CONFIG;
 const connection = await mysql.createConnection(connectionConfig);
 
-export class BookModel {
-  static async getAll() {
-    const [books] = await connection.query("SELECT * FROM book ORDER BY id");
+export const formatRouter = Router();
 
-    return books;
-  }
+formatRouter.get("/", async (req, res) => {
+  const [formats] = await connection.query("SELECT * FROM format ORDER BY id");
 
-  static async getById({ id }) {
-    const [book] = await connection.query("SELECT * FROM book WHERE id = ?", [
-      id,
-    ]);
-
-    return book;
-  }
-}
+  res.json(formats);
+});
